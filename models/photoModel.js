@@ -1,17 +1,15 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const photoSchema = new Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+const PhotoSchema = new Schema({
+  url: {
+    type: String,
+    required: true
   },
-  url: String,
-  caption: String,
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+  likes: {
+    type: Number,
+    default: 0
+  }
 });
 
-mongoose.model("Photo", photoSchema);
+mongoose.model("Photo", PhotoSchema);
