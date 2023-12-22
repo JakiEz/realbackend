@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const bcrypt = require("bcrypt");
 
+
 module.exports = (app) => {
   app.post("/user/create", async (req, res) => {
     const saltRounds = 10;
