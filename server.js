@@ -6,14 +6,14 @@ const bodyParser = require("body-parser");
 const app = express();
 const PORT = 3000;
 
-const corsOptions = {
-    origin: 'http://localhost:3000', // Allow requests from this origin
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // Allow cookies and authentication headers
-  };
+// const corsOptions = {
+//     origin: 'http://172.20.10.3:3000/user/login', // Allow requests from this origin
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true, // Allow cookies and authentication headers
+//   };
 
 app.use(express.json())
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -22,6 +22,7 @@ require('./models/userModels')
 
 //for routes
 require('./routes/userRoute')(app);
+require('./routes/formulaRoutes')(app);
 //dwa
 //for mongodb connections
 mongoose.connect(process.env.mongoURI, {useNewUrlParser: true});
